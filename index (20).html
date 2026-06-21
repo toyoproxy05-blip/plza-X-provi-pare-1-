@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finanzas Educativas | Blog independiente sobre primeros ingresos y vida financiera</title>
+<meta name="description" content="Blog educativo independiente sobre cómo manejar tus primeros ingresos, moverte en la vida financiera y aprender sobre dinero desde cero. Caracas, Venezuela.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --verde:      #2E7D52;
+  --verde-mid:  #3A9464;
+  --verde-light:#E8F5EE;
+  --verde-pale: #F4FBF7;
+  --crema:      #F8F6F1;
+  --arena:      #EDE8DF;
+  --oro:        #B07D2E;
+  --oro-soft:   #FBF5E8;
+  --white:      #FFFFFF;
+  --line:       #E2DDD6;
+  --muted:      #6B7566;
+  --text:       #1A2218;
+  --f:          'Plus Jakarta Sans', system-ui, sans-serif;
+  --fs:         'Lora', Georgia, serif;
+  --r:          10px;
+  --sh:         0 2px 16px rgba(46,125,82,0.07);
+  --sh-md:      0 8px 32px rgba(46,125,82,0.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--f);background:var(--crema);color:var(--text);font-size:16px;line-height:1.65}
+
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(46,125,82,0.05)}
+.nav-in{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:62px;padding:0 24px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:var(--verde);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--white);font-family:var(--fs);font-style:italic;font-weight:600;font-size:1.1rem;flex-shrink:0}
+.logo-txt{}
+.logo-name{font-weight:700;font-size:0.9rem;color:var(--text);line-height:1.2;display:block}
+.logo-tag{font-size:0.58rem;font-weight:400;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;display:block;margin-top:1px}
+.nav-links{display:flex;gap:2px;list-style:none}
+.nav-links a{font-size:0.77rem;font-weight:500;color:var(--muted);text-decoration:none;padding:6px 10px;border-radius:6px;transition:all 0.15s}
+.nav-links a:hover{color:var(--verde);background:var(--verde-light)}
+.nav-s{display:flex;align-items:center;gap:8px;background:var(--verde-pale);border:1px solid var(--line);border-radius:8px;padding:6px 12px}
+.nav-s input{background:none;border:none;outline:none;font-family:var(--f);font-size:0.77rem;color:var(--text);width:130px}
+.nav-s input::placeholder{color:var(--muted)}
+.burger{display:none;background:none;border:none;cursor:pointer;flex-direction:column;gap:5px;padding:4px}
+.burger span{display:block;width:20px;height:2px;background:var(--text);border-radius:2px}
+
+/* DISCLAIMER */
+.disc-top{background:var(--oro-soft);border-bottom:2px solid var(--oro);padding:12px 24px;text-align:center;font-size:0.8rem;color:#5C3D00;font-weight:600;line-height:1.7}
+
+/* HERO */
+.hero{background:var(--verde-pale);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero-deco{position:absolute;right:0;top:0;bottom:0;width:42%;background:var(--verde-light);clip-path:polygon(6% 0,100% 0,100% 100%,0 100%);pointer-events:none}
+.hero-in{max-width:1140px;margin:0 auto;padding:64px 24px 56px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:64px;align-items:center;position:relative;z-index:1}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;background:var(--verde);color:var(--white);font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:18px}
+.hero h1{font-family:var(--fs);font-size:clamp(2rem,4vw,3rem);line-height:1.15;color:var(--text);margin-bottom:16px}
+.hero h1 em{font-style:italic;color:var(--verde-mid)}
+.hero-sub{font-size:0.97rem;color:var(--muted);line-height:1.78;margin-bottom:24px;max-width:450px}
+.hero-qes{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:24px}
+.hero-qes h3{font-size:0.74rem;font-weight:700;color:var(--verde);text-transform:uppercase;letter-spacing:0.09em;margin-bottom:10px}
+.hero-qes ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.hero-qes li{font-size:0.82rem;color:var(--muted);display:flex;align-items:center;gap:8px}
+.hero-qes .si::before{content:'✓';color:var(--verde);font-weight:700;flex-shrink:0}
+.hero-qes .no{color:#C0392B}
+.hero-qes .no::before{content:'✗';color:#C0392B;flex-shrink:0}
+.hero-cta{display:inline-flex;align-items:center;gap:8px;background:var(--verde);color:var(--white);font-family:var(--f);font-weight:700;font-size:0.88rem;padding:12px 24px;border-radius:8px;text-decoration:none;transition:all 0.2s}
+.hero-cta:hover{background:var(--verde-mid);transform:translateY(-2px);box-shadow:0 6px 20px rgba(46,125,82,0.28)}
+.hero-right{display:flex;flex-direction:column;gap:12px}
+.step-card{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);padding:14px 16px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all 0.2s}
+.step-card:hover{border-color:var(--verde);box-shadow:var(--sh);transform:translateX(4px)}
+.step-n{width:32px;height:32px;background:var(--verde-light);color:var(--verde);font-weight:800;font-size:0.8rem;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--f)}
+.step-txt strong{display:block;font-size:0.83rem;font-weight:700;color:var(--text);margin-bottom:2px}
+.step-txt span{font-size:0.71rem;color:var(--muted)}
+
+/* PROVINET BAND */
+.prov-band{background:var(--arena);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 24px}
+.prov-in{max-width:1140px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.prov-badge{background:var(--verde);color:var(--white);font-size:0.7rem;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap}
+.prov-txt{font-size:0.8rem;color:var(--muted);line-height:1.6}
+.prov-txt strong{color:var(--text)}
+
+/* STATS */
+.stats{background:var(--verde);padding:18px 24px}
+.stats-in{max-width:1140px;margin:0 auto;display:flex;gap:48px;justify-content:center;flex-wrap:wrap}
+.stat{text-align:center;color:var(--white)}
+.stat .n{font-family:var(--fs);font-size:1.8rem;line-height:1}
+.stat .l{font-size:0.67rem;color:rgba(255,255,255,0.65);margin-top:3px;text-transform:uppercase;letter-spacing:0.08em}
+
+/* CATS */
+.cats{padding:52px 24px;background:var(--crema)}
+.cats-in{max-width:1140px;margin:0 auto}
+.s-eye{font-size:0.68rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--oro);margin-bottom:6px}
+.s-ttl{font-family:var(--fs);font-size:1.6rem;color:var(--text);margin-bottom:28px}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:12px}
+.cat-card{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);padding:20px 14px;cursor:pointer;transition:all 0.2s;text-align:center}
+.cat-card:hover{border-color:var(--verde);box-shadow:var(--sh);transform:translateY(-2px)}
+.cat-card .ic{font-size:1.8rem;margin-bottom:8px;display:block}
+.cat-card h3{font-size:0.82rem;font-weight:700;color:var(--verde);margin-bottom:3px}
+.cat-card p{font-size:0.7rem;color:var(--muted)}
+
+/* ARTS */
+.arts{padding:52px 24px;background:var(--white)}
+.arts-in{max-width:1140px;margin:0 auto}
+.frow{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:26px}
+.fb{font-size:0.74rem;font-weight:600;padding:5px 14px;border-radius:20px;border:1.5px solid var(--line);background:var(--crema);color:var(--muted);cursor:pointer;transition:all 0.15s;font-family:var(--f)}
+.fb.on,.fb:hover{background:var(--verde);color:var(--white);border-color:var(--verde)}
+.art-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(315px,1fr));gap:20px}
+.art-card{background:var(--white);border:1.5px solid var(--line);border-radius:var(--r);overflow:hidden;cursor:pointer;transition:all 0.2s}
+.art-card:hover{box-shadow:var(--sh-md);transform:translateY(-3px);border-color:var(--verde-light)}
+.art-thumb{height:110px;display:flex;align-items:center;justify-content:center;font-size:2.6rem}
+.art-body{padding:18px}
+.art-tag{font-size:0.63rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:3px 9px;border-radius:10px;margin-bottom:6px;display:inline-block}
+.art-date{font-size:0.65rem;color:var(--muted);margin-bottom:8px;display:block}
+.art-card h3{font-size:0.93rem;font-weight:600;color:var(--text);margin-bottom:7px;line-height:1.35;font-family:var(--fs)}
+.art-card p{font-size:0.79rem;color:var(--muted);line-height:1.6}
+.art-read{font-size:0.73rem;font-weight:700;color:var(--verde);margin-top:11px;display:inline-flex;align-items:center;gap:4px}
+
+.tg-a{background:#E8F5EE;color:#1F5C38}
+.tg-b{background:#FBF5E8;color:#5C3D00}
+.tg-c{background:#EEF2FF;color:#3730A3}
+.tg-d{background:#FDF4FF;color:#6B21A8}
+.tg-e{background:#FFF7ED;color:#9A3412}
+.tg-f{background:#F0FDF4;color:#166534}
+
+/* NEWSLETTER */
+.nl{padding:52px 24px;background:var(--verde-pale);border-top:1px solid var(--line)}
+.nl-in{max-width:600px;margin:0 auto;text-align:center}
+.nl h2{font-family:var(--fs);font-size:1.5rem;color:var(--text);margin-bottom:10px}
+.nl p{font-size:0.88rem;color:var(--muted);margin-bottom:24px;line-height:1.7}
+.nl-form{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.nl-form input{flex:1;min-width:220px;padding:11px 16px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--f);font-size:0.85rem;background:var(--white);outline:none}
+.nl-form input:focus{border-color:var(--verde)}
+.nl-form button{background:var(--verde);color:var(--white);border:none;font-family:var(--f);font-weight:700;font-size:0.85rem;padding:11px 22px;border-radius:8px;cursor:pointer;transition:all 0.2s}
+.nl-form button:hover{background:var(--verde-mid)}
+.nl-note{font-size:0.72rem;color:var(--muted);margin-top:12px}
+.nl-note a{color:var(--verde)}
+.nl-ok{display:none;background:var(--verde-light);border:1px solid var(--verde);border-radius:8px;padding:14px 20px;font-size:0.85rem;color:var(--verde);font-weight:600;margin-top:12px}
+
+/* READER */
+#reader{display:none;position:fixed;inset:0;z-index:200;background:var(--crema);overflow-y:auto}
+.rdr-nav{background:var(--verde);padding:14px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:201}
+.back{background:none;border:none;cursor:pointer;font-family:var(--f);font-size:0.85rem;font-weight:700;color:var(--white);display:flex;align-items:center;gap:6px}
+.back:hover{color:var(--verde-light)}
+.rdr-wrap{max-width:720px;margin:0 auto;padding:52px 24px 100px}
+.rdr-disc{background:var(--oro-soft);border:1px solid var(--oro);border-radius:8px;padding:12px 16px;font-size:0.78rem;color:#5C3D00;margin-bottom:24px;line-height:1.6}
+.rdr-tag{font-size:0.68rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:10px;margin-bottom:10px;display:inline-block}
+.rdr-date{font-size:0.72rem;color:var(--muted);margin-bottom:14px;display:block}
+.rdr-wrap h1{font-family:var(--fs);font-size:clamp(1.7rem,4vw,2.5rem);line-height:1.15;color:var(--text);margin-bottom:14px}
+.r-meta{font-size:0.76rem;color:var(--muted);padding-bottom:18px;margin-bottom:28px;border-bottom:3px solid var(--verde-light)}
+.rb h2{font-family:var(--fs);font-size:1.25rem;color:var(--verde);margin:34px 0 11px;padding-bottom:6px;border-bottom:2px solid var(--verde-light)}
+.rb h3{font-size:1rem;font-weight:700;color:var(--text);margin:20px 0 7px}
+.rb p{color:var(--muted);margin-bottom:15px;line-height:1.82;font-size:0.97rem}
+.rb ul,.rb ol{padding-left:22px;margin-bottom:15px}
+.rb li{color:var(--muted);margin-bottom:7px;line-height:1.7;font-size:0.97rem}
+.rb strong{color:var(--text)}
+.tip{background:var(--verde-pale);border-left:4px solid var(--verde);padding:14px 18px;border-radius:0 8px 8px 0;margin:22px 0}
+.tip p{margin:0;color:var(--verde);font-size:0.91rem}
+.warn{background:var(--oro-soft);border-left:4px solid var(--oro);padding:14px 18px;border-radius:0 8px 8px 0;margin:22px 0}
+.warn p{margin:0;color:#5C3D00;font-size:0.91rem}
+.adslot{border:1px dashed var(--line);border-radius:8px;padding:12px;text-align:center;color:var(--muted);font-size:0.68rem;margin:26px 0}
+.rel-blk{margin-top:48px;padding-top:26px;border-top:1px solid var(--line)}
+.rel-blk h4{font-size:0.72rem;font-weight:700;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px}
+.rel-links{display:flex;flex-wrap:wrap;gap:8px}
+.rel-lnk{background:var(--verde-pale);border:1px solid var(--verde-light);border-radius:8px;padding:7px 13px;font-size:0.8rem;color:var(--verde);text-decoration:none;font-weight:600}
+.rel-lnk:hover{background:var(--verde-light)}
+
+/* PAGES */
+#page{display:none;position:fixed;inset:0;z-index:200;background:var(--crema);overflow-y:auto}
+.page-nav{background:var(--verde);padding:14px 24px;display:flex;align-items:center;gap:16px;position:sticky;top:0;z-index:201}
+.page-wrap{max-width:760px;margin:0 auto;padding:52px 24px 100px}
+.page-wrap h1{font-family:var(--fs);font-size:2rem;color:var(--text);margin-bottom:8px}
+.page-wrap h2{font-family:var(--fs);font-size:1.25rem;color:var(--verde);margin:28px 0 10px}
+.page-wrap p{color:var(--muted);font-size:0.93rem;line-height:1.8;margin-bottom:12px}
+.page-wrap ul{padding-left:20px;margin-bottom:12px}
+.page-wrap li{color:var(--muted);font-size:0.93rem;line-height:1.75;margin-bottom:6px}
+.page-wrap a{color:var(--verde)}
+.page-disc{background:var(--oro-soft);border:1.5px solid var(--oro);border-radius:10px;padding:16px 20px;font-size:0.85rem;color:#5C3D00;margin:20px 0;line-height:1.7}
+.contact-form{display:flex;flex-direction:column;gap:12px;margin-top:16px}
+.contact-form input,.contact-form textarea{padding:11px 14px;border:1.5px solid var(--line);border-radius:8px;font-family:var(--f);font-size:0.85rem;background:var(--white);outline:none;resize:vertical}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--verde)}
+.contact-form button{background:var(--verde);color:var(--white);border:none;font-family:var(--f);font-weight:700;font-size:0.85rem;padding:12px 22px;border-radius:8px;cursor:pointer;width:fit-content}
+.form-ok{display:none;background:var(--verde-light);border:1px solid var(--verde);border-radius:8px;padding:14px;font-size:0.85rem;color:var(--verde);font-weight:600;margin-top:8px}
+
+/* COOKIE */
+#ck{position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--text);color:rgba(255,255,255,0.8);padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:3px solid var(--verde)}
+#ck p{font-size:0.8rem;max-width:640px}
+#ck a{color:#7ECFA0}
+.ck-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-ok{background:var(--verde);color:var(--white);border:none;font-family:var(--f);font-weight:700;font-size:0.8rem;padding:8px 18px;border-radius:7px;cursor:pointer}
+.ck-no{background:none;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.2);font-family:var(--f);font-size:0.8rem;padding:8px 18px;border-radius:7px;cursor:pointer}
+
+/* FOOTER */
+footer{background:var(--text);color:rgba(255,255,255,0.55);padding:48px 24px 24px}
+.foot-disc{max-width:1140px;margin:0 auto 28px;background:rgba(176,125,46,0.12);border:1px solid rgba(176,125,46,0.3);border-radius:10px;padding:14px 18px;font-size:0.78rem;color:rgba(255,255,255,0.7);line-height:1.65}
+.foot-in{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px}
+.foot-brand{font-family:var(--fs);font-size:1rem;color:var(--white);margin-bottom:4px;display:block}
+.foot-sub{font-size:0.6rem;color:rgba(255,255,255,0.35);margin-bottom:10px;display:block;letter-spacing:0.08em;text-transform:uppercase}
+.foot-desc{font-size:0.79rem;line-height:1.65}
+.foot-col h5{color:rgba(255,255,255,0.85);font-size:0.74rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px}
+.foot-col ul{list-style:none}
+.foot-col li{margin-bottom:8px}
+.foot-col a{color:rgba(255,255,255,0.4);text-decoration:none;font-size:0.78rem;transition:color 0.15s;cursor:pointer}
+.foot-col a:hover{color:#7ECFA0}
+.foot-bot{max-width:1140px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.08);padding-top:18px;font-size:0.73rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+@media(max-width:1000px){.foot-in{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){
+  .hero-in{grid-template-columns:1fr;gap:32px}
+  .hero-deco{display:none}
+  .hero-right{display:none}
+  .nav-links,.nav-s{display:none}
+  .burger{display:flex}
+}
+@media(max-width:480px){.foot-in{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<!-- COOKIE -->
+<div id="ck">
+  <p>Usamos cookies propias y de terceros (Google AdSense/Analytics). Lee nuestra <a href="#" onclick="showPage('privacidad');return false;">Privacidad</a> y <a href="#" onclick="showPage('cookies');return false;">Cookies</a>.</p>
+  <div class="ck-btns">
+    <button class="ck-ok" onclick="okCk()">Aceptar</button>
+    <button class="ck-no" onclick="noCk()">Solo necesarias</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="#" onclick="goHome();return false;">
+      <div class="logo-mark">F</div>
+      <div class="logo-txt">
+        <span class="logo-name">Finanzas Educativas</span>
+        <span class="logo-tag">Blog independiente · Contenido informativo y educativo</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" onclick="goHome();return false;">Inicio</a></li>
+      <li><a href="#" onclick="fcat('ingresos');return false;">Primeros Ingresos</a></li>
+      <li><a href="#" onclick="fcat('presupuesto');return false;">Presupuesto</a></li>
+      <li><a href="#" onclick="fcat('ahorro');return false;">Ahorro</a></li>
+      <li><a href="#" onclick="fcat('banco');return false;">Banco y Pagos</a></li>
+      <li><a href="#" onclick="fcat('habitos');return false;">Hábitos</a></li>
+      <li><a href="#" onclick="showPage('sobre');return false;">Nosotros</a></li>
+      <li><a href="#" onclick="showPage('contacto');return false;">Contacto</a></li>
+    </ul>
+    <div class="nav-s">
+      <span style="color:var(--muted);font-size:0.9rem">⌕</span>
+      <input type="search" placeholder="Buscar artículos..." oninput="doSearch(this.value)">
+    </div>
+    <button class="burger" onclick="togNav()" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- DISCLAIMER -->
+<div class="disc-top">
+  ⚠️ <strong>Aviso importante:</strong> Finanzas Educativas es un blog independiente con fines exclusivamente informativos y educativos. <strong>No es un banco, no presta servicios financieros y no tiene afiliación oficial con ninguna entidad financiera ni gubernamental.</strong> Provinet Empresas se menciona como referencia educativa de aprendizaje, sin afiliación comercial oficial.
+</div>
+
+<!-- MAIN -->
+<div id="main">
+  <section class="hero">
+    <div class="hero-deco"></div>
+    <div class="hero-in">
+      <div>
+        <div class="hero-kicker">📖 Blog independiente · Caracas, Venezuela</div>
+        <h1>Aprende a moverte<br>en la vida <em>financiera</em><br>desde el principio.</h1>
+        <p class="hero-sub">Artículos educativos sobre cómo manejar tus primeros ingresos, entender el sistema bancario, ahorrar y construir hábitos financieros sólidos desde cero.</p>
+        <div class="hero-qes">
+          <h3>¿Qué es este blog?</h3>
+          <ul>
+            <li class="si">Artículos educativos sobre finanzas personales</li>
+            <li class="si">Contenido divulgativo e independiente</li>
+            <li class="si">Guías prácticas para el contexto venezolano</li>
+            <li class="no">No somos un banco ni entidad financiera</li>
+            <li class="no">No vendemos productos ni servicios</li>
+            <li class="no">No captamos datos comerciales</li>
+          </ul>
+        </div>
+        <a class="hero-cta" href="#articulos" onclick="document.getElementById('articulos').scrollIntoView({behavior:'smooth'});return false;">Leer artículos ↓</a>
+      </div>
+      <div class="hero-right">
+        <div class="step-card" onclick="fcat('ingresos')">
+          <div class="step-n">01</div>
+          <div class="step-txt"><strong>Tus primeros ingresos</strong><span>Qué hacer cuando cobras por primera vez</span></div>
+        </div>
+        <div class="step-card" onclick="fcat('presupuesto')">
+          <div class="step-n">02</div>
+          <div class="step-txt"><strong>Organiza tu presupuesto</strong><span>Cómo distribuir lo que ganas</span></div>
+        </div>
+        <div class="step-card" onclick="fcat('ahorro')">
+          <div class="step-n">03</div>
+          <div class="step-txt"><strong>Empieza a ahorrar</strong><span>Métodos reales desde el primer sueldo</span></div>
+        </div>
+        <div class="step-card" onclick="fcat('banco')">
+          <div class="step-n">04</div>
+          <div class="step-txt"><strong>Banco y pagos digitales</strong><span>Cómo usar el sistema bancario venezolano</span></div>
+        </div>
+        <div class="step-card" onclick="fcat('habitos')">
+          <div class="step-n">05</div>
+          <div class="step-txt"><strong>Construye hábitos financieros</strong><span>La base de la independencia económica</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVINET BAND -->
+  <div class="prov-band">
+    <div class="prov-in">
+      <span class="prov-badge">📚 Sobre Provinet Empresas</span>
+      <p class="prov-txt"><strong>Provinet Empresas</strong> es una marca educativa de aprendizaje sobre emprendimiento y finanzas. Este blog, Finanzas Educativas, es un proyecto editorial independiente que comparte esa misión educativa. <em>Finanzas Educativas no tiene afiliación comercial oficial con Provinet Empresas ni actúa en su nombre.</em></p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stats-in">
+      <div class="stat"><div class="n">10</div><div class="l">Artículos educativos</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">Categorías</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">Independiente</div></div>
+      <div class="stat"><div class="n">Caracas</div><div class="l">Venezuela</div></div>
+    </div>
+  </div>
+
+  <section class="cats">
+    <div class="cats-in">
+      <div class="s-eye">Explora por tema</div>
+      <div class="s-ttl">¿Qué quieres aprender hoy?</div>
+      <div class="cat-grid">
+        <div class="cat-card" onclick="fcat('ingresos')"><span class="ic">💵</span><h3>Primeros Ingresos</h3><p>Qué hacer cuando cobras</p></div>
+        <div class="cat-card" onclick="fcat('presupuesto')"><span class="ic">📊</span><h3>Presupuesto</h3><p>Organiza tu dinero</p></div>
+        <div class="cat-card" onclick="fcat('ahorro')"><span class="ic">🐷</span><h3>Ahorro</h3><p>Guarda para el futuro</p></div>
+        <div class="cat-card" onclick="fcat('banco')"><span class="ic">🏦</span><h3>Banco y Pagos</h3><p>Sistema bancario venezolano</p></div>
+        <div class="cat-card" onclick="fcat('habitos')"><span class="ic">🎯</span><h3>Hábitos Financieros</h3><p>Construye tu base</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="arts" id="articulos">
+    <div class="arts-in">
+      <div class="s-eye">Artículos del blog</div>
+      <div class="s-ttl" style="margin-bottom:18px">Contenido educativo e independiente</div>
+      <div class="frow" id="frow"></div>
+      <div class="art-grid" id="grid"></div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="nl">
+    <div class="nl-in">
+      <div class="s-eye">Newsletter educativo</div>
+      <h2>Recibe nuevos artículos</h2>
+      <p>Suscríbete para recibir artículos educativos sobre finanzas personales directamente en tu correo. Sin publicidad, sin ventas, solo contenido informativo.</p>
+      <div class="nl-form">
+        <input type="email" id="nl-email" placeholder="Tu correo electrónico" autocomplete="email">
+        <button onclick="nlSubmit()">Suscribirme</button>
+      </div>
+      <p class="nl-note">Solo usamos tu email para enviarte artículos. Lee nuestra <a href="#" onclick="showPage('privacidad');return false;">Política de Privacidad</a>.</p>
+      <div class="nl-ok" id="nl-ok">✓ ¡Gracias! Te avisaremos cuando publiquemos nuevos artículos.</div>
+    </div>
+  </section>
+</div>
+
+<!-- READER -->
+<div id="reader">
+  <div class="rdr-nav">
+    <button class="back" onclick="closeReader()">← Volver al blog</button>
+    <span id="rcrumb" style="font-size:0.77rem;color:rgba(255,255,255,0.7)"></span>
+  </div>
+  <div class="rdr-wrap" id="rcontent"></div>
+</div>
+
+<!-- PAGES -->
+<div id="page">
+  <div class="page-nav">
+    <button class="back" onclick="closePage()">← Volver al blog</button>
+    <span id="page-title" style="font-size:0.77rem;color:rgba(255,255,255,0.7)"></span>
+  </div>
+  <div class="page-wrap" id="page-content"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-disc">
+    ⚠️ <strong>Aviso legal:</strong> Finanzas Educativas (finanzaseducativas.blog) es un blog editorial independiente operado por Juan Pablo Sanchez Chavez, con sede en Caracas, Venezuela. Este sitio no tiene afiliación, vínculo comercial ni representación oficial con ningún banco, entidad financiera ni organización gubernamental. Provinet Empresas se menciona como referencia educativa sin afiliación comercial oficial. Todo el contenido es exclusivamente informativo y educativo. Contacto: <a href="mailto:finanzaseducativas@gmail.com" style="color:#7ECFA0">finanzaseducativas@gmail.com</a>
+  </div>
+  <div class="foot-in">
+    <div>
+      <span class="foot-brand">Finanzas Educativas</span>
+      <span class="foot-sub">Blog independiente · Educación financiera</span>
+      <p class="foot-desc">Blog educativo independiente sobre finanzas personales para venezolanos. Aprende a manejar tus primeros ingresos y moverte en la vida financiera.</p>
+    </div>
+    <div class="foot-col">
+      <h5>Temas</h5>
+      <ul>
+        <li><a href="#" onclick="fcat('ingresos');return false;">Primeros Ingresos</a></li>
+        <li><a href="#" onclick="fcat('presupuesto');return false;">Presupuesto</a></li>
+        <li><a href="#" onclick="fcat('ahorro');return false;">Ahorro</a></li>
+        <li><a href="#" onclick="fcat('banco');return false;">Banco y Pagos</a></li>
+        <li><a href="#" onclick="fcat('habitos');return false;">Hábitos Financieros</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>El blog</h5>
+      <ul>
+        <li><a href="#" onclick="showPage('sobre');return false;">Sobre nosotros</a></li>
+        <li><a href="#" onclick="showPage('contacto');return false;">Contacto</a></li>
+        <li><a href="#" onclick="showPage('editorial');return false;">Política editorial</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#" onclick="showPage('privacidad');return false;">Política de privacidad</a></li>
+        <li><a href="#" onclick="showPage('cookies');return false;">Política de cookies</a></li>
+        <li><a href="#" onclick="showPage('legal');return false;">Aviso legal</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© 2025 Finanzas Educativas · finanzaseducativas.blog · Juan Pablo Sanchez Chavez · Caracas, Venezuela</span>
+    <span>Blog educativo independiente — sin afiliación institucional.</span>
+  </div>
+</footer>
+
+<script>
+const DISC = '<div class="rdr-disc">📋 <strong>Aviso:</strong> Finanzas Educativas es un blog educativo independiente sin afiliación con ninguna entidad financiera. Provinet Empresas se menciona como referencia educativa sin afiliación comercial oficial. Contenido exclusivamente informativo.</div>';
+
+const ARTS = [
+  {id:1,cat:'ingresos',label:'Primeros Ingresos',cls:'tg-a',icon:'💵',bg:'#E8F5EE',
+   date:'15 junio 2025',
+   title:'Qué hacer con tu primer ingreso: la guía que nadie te da',
+   summary:'El primer dinero que ganas es el más importante. No por el monto, sino por los hábitos que construyes con él. Esta guía te dice exactamente qué hacer.',
+   rel:[2,3,5],
+   body:`${DISC}<span class="rdr-tag tg-a">Primeros Ingresos</span>
+<span class="rdr-date">📅 15 junio 2025</span>
+<h1>Qué hacer con tu primer ingreso: la guía que nadie te da</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 8 min</p>
+<div class="rb">
+<p>El primer ingreso propio es un momento de quiebre en la vida de cualquier persona. Puede ser el primer sueldo de un trabajo formal, el pago por un servicio prestado o las primeras ganancias de un pequeño negocio. Lo que hagas con ese primer dinero establece patrones que pueden acompañarte durante años. Este artículo te da el mapa que la mayoría recibe demasiado tarde.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>Lo primero: no gastar todo el primer día</h2>
+<p>La tentación del primer ingreso es gastar todo inmediatamente en cosas que se han querido tener. Ese impulso es completamente natural y no está mal en sí mismo, pero actuar sin ningún plan puede generar un patrón que se repite indefinidamente: cobra, gasta todo, espera el próximo pago con angustia. Ese ciclo puede romperse desde el principio.</p>
+<h2>El plan de los tres tercios</h2>
+<p>Una forma simple de dividir el primer ingreso es la regla de los tres tercios. Un tercio para necesidades básicas (comida, transporte, servicios si corresponde). Un tercio para gastos personales y ocio. Un tercio para ahorro. Si el ingreso es bajo y las necesidades básicas consumen más del tercio, ajusta los otros dos, pero siempre guarda algo, aunque sea el 5% o el 10%.</p>
+<div class="tip"><p>💡 El hábito más importante que puedes construir con tu primer ingreso no es cuánto ahorras sino que ahorres algo. El porcentaje puede crecer. El hábito, si no lo activas desde el principio, cuesta mucho más instalar después.</p></div>
+<h2>Abre una cuenta bancaria dedicada si no tienes</h2>
+<p>Si recibes ingresos en efectivo o por transferencia, tener una cuenta bancaria activa donde llegue ese dinero es el primer paso de organización financiera. En Venezuela, abrir una cuenta en cualquier banco del sistema financiero nacional es un proceso accesible. Una vez que el ingreso tiene un lugar fijo al que llegar, es más fácil organizarlo.</p>
+<h2>El error más común con el primer ingreso</h2>
+<p>El error más frecuente no es gastar de más: es no saber cuánto se gastó ni en qué. Terminar el mes sin dinero sin poder explicar dónde fue es la señal de que falta conciencia financiera. Un registro simple de gastos, aunque sea en papel o en una nota del teléfono, transforma esa niebla en información.</p>
+<h2>Qué dicen las experiencias de aprendizaje como Provinet Empresas</h2>
+<p>Desde espacios de aprendizaje educativo como Provinet Empresas, se insiste en que la educación financiera desde el primer ingreso no es un lujo sino una necesidad. Entender el dinero desde temprano permite evitar los errores más comunes y construir una base sólida para las decisiones financieras futuras.</p>
+<div class="warn"><p>⚠️ <strong>Aviso educativo:</strong> Finanzas Educativas no tiene afiliación comercial oficial con Provinet Empresas. La mención es exclusivamente con fines educativos y de referencia informativa.</p></div>
+<h2>Conclusión</h2>
+<p>Tu primer ingreso no tiene que ser perfecto para ser el inicio de una vida financiera ordenada. Lo que importa es la intención: decidir activamente qué hacer con el dinero en lugar de dejar que las circunstancias decidan por ti. Ese cambio de actitud pasiva a activa con el dinero es el fundamento de cualquier independencia financiera futura.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:2,cat:'presupuesto',label:'Presupuesto',cls:'tg-b',icon:'📊',bg:'#FBF5E8',
+   date:'10 junio 2025',
+   title:'Tu primer presupuesto personal: cómo hacerlo en 30 minutos',
+   summary:'Un presupuesto no tiene que ser complicado para funcionar. Aprende a construir el tuyo desde cero en media hora con información real de tu situación.',
+   rel:[1,3,7],
+   body:`${DISC}<span class="rdr-tag tg-b">Presupuesto</span>
+<span class="rdr-date">📅 10 junio 2025</span>
+<h1>Tu primer presupuesto personal: cómo hacerlo en 30 minutos</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 8 min</p>
+<div class="rb">
+<p>El presupuesto personal tiene mala reputación. Muchos lo asocian con restricciones, privaciones y hojas de cálculo complicadas. En realidad, un presupuesto básico puede hacerse en 30 minutos con papel y lápiz, y transforma completamente la relación con el dinero. Este artículo te lo muestra paso a paso.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>¿Qué es realmente un presupuesto?</h2>
+<p>Un presupuesto es simplemente un plan para tu dinero antes de que llegue el mes. En lugar de descubrir al final del mes que no queda nada y no saber por qué, el presupuesto te permite decidir de antemano a dónde va cada bolívar o dólar que ganas. Es una herramienta de control, no de privación.</p>
+<h2>Paso 1: Escribe tu ingreso neto real</h2>
+<p>Anota cuánto dinero entra realmente cada mes después de deducciones. Si tus ingresos varían, usa el promedio de los últimos dos o tres meses. Trabaja siempre con el número más bajo para ser conservador.</p>
+<h2>Paso 2: Lista todos los gastos fijos</h2>
+<p>Los gastos fijos son los que pagan el mismo monto todos los meses: alquiler, servicios, transporte, cuotas de deudas. Súmalos. Ese total es lo mínimo que gastas cada mes independientemente de lo que hagas.</p>
+<h2>Paso 3: Estima los gastos variables</h2>
+<p>Comida, ropa, entretenimiento, gastos personales. Para estimarlos, revisa los movimientos de tu cuenta bancaria de los últimos dos meses. Usa números reales, no lo que crees que gastas.</p>
+<div class="tip"><p>💡 La regla 50/30/20 es un punto de partida clásico: 50% para necesidades (alquiler, comida, transporte), 30% para gastos personales y ocio, 20% para ahorro. Ajústala según tu realidad venezolana, pero úsala como referencia.</p></div>
+<h2>Paso 4: Compara y ajusta</h2>
+<p>Suma fijos + variables. Compara con tu ingreso. Si los gastos superan el ingreso, hay que ajustar alguna categoría variable o buscar cómo aumentar los ingresos. Si hay diferencia positiva, esa es tu capacidad de ahorro mensual.</p>
+<h2>Conclusión</h2>
+<p>Tu primer presupuesto no será perfecto. Lo importante es que sea honesto y que lo revises al final del mes para ajustarlo. Un presupuesto imperfecto que se usa es infinitamente mejor que un presupuesto perfecto que está guardado en un cajón.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:3,cat:'ahorro',label:'Ahorro',cls:'tg-c',icon:'🐷',bg:'#EEF2FF',
+   date:'5 junio 2025',
+   title:'Cómo empezar a ahorrar desde cero cuando el sueldo apenas alcanza',
+   summary:'Ahorrar con ingresos ajustados parece imposible. La realidad es que el monto inicial importa menos que el hábito. Aprende a activar el ahorro desde donde estás.',
+   rel:[2,1,6],
+   body:`${DISC}<span class="rdr-tag tg-c">Ahorro</span>
+<span class="rdr-date">📅 5 junio 2025</span>
+<h1>Cómo empezar a ahorrar desde cero cuando el sueldo apenas alcanza</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 8 min</p>
+<div class="rb">
+<p>La excusa más común para no ahorrar es que el sueldo no alcanza. Y en muchos casos en Venezuela, esa percepción es genuina. Pero hay una diferencia importante entre "el sueldo no alcanza para ahorrar" y "el sueldo no alcanza para ahorrar lo que yo creo que debería ahorrar". Este artículo trabaja sobre esa diferencia.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>El problema del ahorro pasivo</h2>
+<p>Ahorrar lo que sobra al final del mes es ahorro pasivo. El problema es que casi nunca sobra nada porque los gastos se expanden para ocupar todo el ingreso disponible. El ahorro activo invierte ese orden: primero se aparta el ahorro, luego se vive con el resto.</p>
+<h2>El 1%: el punto de partida más pequeño posible</h2>
+<p>Si no puedes ahorrar el 10%, empieza con el 1%. Si ganas el equivalente a 200 dólares mensuales, el 1% son 2 dólares. Ese monto no cambia tu vida financiera por sí solo, pero activa el hábito. Y el hábito, cultivado con consistencia, sí cambia la vida financiera.</p>
+<div class="tip"><p>💡 <strong>Págarte primero:</strong> El día que recibes tu ingreso, antes de cualquier gasto, transfiere tu ahorro a una cuenta separada. Lo que no ves, no lo gastas. Esta sola práctica, mantenida en el tiempo, genera resultados que sorprenden.</p></div>
+<h2>El fondo de emergencia: la primera meta</h2>
+<p>La primera meta de ahorro para cualquier persona que empieza desde cero no es invertir ni acumular grandes cantidades. Es construir un fondo de emergencia equivalente a uno o dos meses de gastos básicos. Ese fondo convierte los imprevistos de crisis en problemas resolubles.</p>
+<h2>Dónde guardar el ahorro</h2>
+<p>El ahorro debe estar en una cuenta separada de la cuenta del día a día. Una cuenta bancaria sin tarjeta de débito asociada, si es posible, reduce la tentación de usarlo para gastos cotidianos. En Venezuela, la mayoría de los bancos permiten tener múltiples cuentas.</p>
+<h2>Conclusión</h2>
+<p>Ahorrar desde cero con ingresos ajustados es difícil pero posible. La clave está en empezar con el monto más pequeño que puedas apartar de forma consistente, hacerlo el primer día del mes antes de cualquier otro gasto, y aumentar el porcentaje gradualmente a medida que mejoran los ingresos o se reducen los gastos.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:4,cat:'banco',label:'Banco y Pagos',cls:'tg-d',icon:'🏦',bg:'#FDF4FF',
+   date:'1 junio 2025',
+   title:'Cómo moverte en el sistema bancario venezolano desde joven',
+   summary:'El sistema bancario venezolano tiene sus propias reglas y herramientas. Esta guía te explica lo básico que necesitas saber para usarlo con confianza.',
+   rel:[1,5,8],
+   body:`${DISC}<span class="rdr-tag tg-d">Banco y Pagos</span>
+<span class="rdr-date">📅 1 junio 2025</span>
+<h1>Cómo moverte en el sistema bancario venezolano desde joven</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 8 min</p>
+<div class="rb">
+<p>El sistema bancario venezolano puede parecer complejo al principio, especialmente para quienes lo usan por primera vez. Pero sus herramientas básicas son accesibles y, bien entendidas, facilitan enormemente la gestión del dinero diario. Este artículo te da el mapa básico para moverte con confianza.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>La cuenta bancaria: el primer paso</h2>
+<p>Tener una cuenta bancaria activa en el sistema financiero venezolano es el punto de partida de cualquier gestión financiera formal. Los bancos venezolanos ofrecen cuentas de ahorro y corrientes accesibles para personas naturales. Para abrirla generalmente necesitas cédula de identidad, RIF y número de teléfono.</p>
+<div class="warn"><p>⚠️ <strong>Aviso educativo:</strong> Este artículo describe el funcionamiento general del sistema bancario venezolano con fines informativos. Finanzas Educativas no tiene afiliación con ningún banco venezolano ni actúa en nombre de ninguna institución financiera. Para información específica, consulta directamente con tu institución financiera.</p></div>
+<h2>El pago móvil: la herramienta más usada en Venezuela</h2>
+<p>El pago móvil venezolano es un sistema interbancario que permite enviar y recibir dinero usando solo el número de teléfono y la cédula del destinatario. Es gratuito, inmediato y funciona entre todos los bancos del sistema. Para activarlo, entra a la aplicación de tu banco y vincula tu número de teléfono a tu cuenta.</p>
+<h2>La banca digital: gestiona tu dinero desde el teléfono</h2>
+<p>La mayoría de los bancos venezolanos tienen aplicaciones móviles que permiten consultar saldo, hacer transferencias, pagar servicios y activar el pago móvil sin necesidad de ir a la agencia. Descargar la app de tu banco y activarla es una de las primeras acciones que debes realizar al abrir una cuenta.</p>
+<h2>El estado de cuenta: tu registro financiero</h2>
+<p>El estado de cuenta bancario registra cada movimiento de tu cuenta: entradas, salidas, fechas y montos. Revisarlo mensualmente te da una imagen honesta de tus ingresos reales y tus gastos reales. Es la materia prima más confiable para construir un presupuesto.</p>
+<h2>Conclusión</h2>
+<p>El sistema bancario venezolano, bien entendido y bien usado, es una herramienta de gestión financiera accesible. El pago móvil, la banca digital y el control del estado de cuenta son los tres pilares básicos para cualquier joven que empieza a moverse en la vida financiera venezolana.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:5,cat:'habitos',label:'Hábitos Financieros',cls:'tg-e',icon:'🎯',bg:'#FFF7ED',
+   date:'25 mayo 2025',
+   title:'5 hábitos financieros que cambian la vida y cuestan cero dinero',
+   summary:'Los mejores hábitos financieros no cuestan dinero. Cuestan tiempo, atención y consistencia. Estos cinco son los más poderosos para construir una base financiera sólida.',
+   rel:[1,2,3],
+   body:`${DISC}<span class="rdr-tag tg-e">Hábitos Financieros</span>
+<span class="rdr-date">📅 25 mayo 2025</span>
+<h1>5 hábitos financieros que cambian la vida y cuestan cero dinero</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 8 min</p>
+<div class="rb">
+<p>Hay una idea equivocada sobre la salud financiera: que requiere ganar mucho dinero para poder practicarla. La realidad es que los hábitos más transformadores para las finanzas personales no cuestan dinero. Cuestan atención, consistencia y la disposición a hacer pequeñas cosas de forma regular. Estos cinco hábitos son la prueba.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>Hábito 1: Revisar el saldo bancario todos los lunes</h2>
+<p>Cinco minutos cada lunes mirando tu cuenta bancaria activa la conciencia sobre el dinero. Sabes exactamente cuánto tienes, qué movimientos hubo la semana anterior y si vas bien o mal con el presupuesto del mes. La mayoría de las personas revisa su cuenta solo cuando hay un problema. Revisarla proactivamente cambia la relación con el dinero.</p>
+<h2>Hábito 2: Anotar cada gasto el día que ocurre</h2>
+<p>No necesitas una app sofisticada. Una nota en el teléfono o un papel con el monto y la categoría de cada gasto del día es suficiente. Este hábito genera conciencia sobre los patrones de consumo que de otra forma son invisibles.</p>
+<h2>Hábito 3: Esperar 24 horas antes de compras no planificadas</h2>
+<p>Antes de cualquier compra impulsiva no prevista en el presupuesto, espera 24 horas. La mayoría de los deseos de compra impulsiva desaparecen en ese tiempo. Los que persisten después de 24 horas son más probablemente compras que valen la pena.</p>
+<div class="tip"><p>💡 En el contexto venezolano, donde la disponibilidad de productos puede ser irregular, este hábito requiere ajuste. La clave es distinguir entre la urgencia real (el producto se acaba) y la urgencia artificial (el cerebro que quiere comprar ahora).</p></div>
+<h2>Hábito 4: Guardar todos los comprobantes de pago importantes</h2>
+<p>Alquiler, servicios, deudas, transferencias importantes. Una carpeta en el teléfono o en Google Drive con las capturas de pantalla de los comprobantes es suficiente. Estos comprobantes protegen ante disputas y facilitan el seguimiento de pagos.</p>
+<h2>Hábito 5: Educarte sobre finanzas 20 minutos por semana</h2>
+<p>Leer un artículo, escuchar un podcast, ver un video sobre finanzas personales. El conocimiento financiero es un activo que no se deprecia. Espacios educativos como Provinet Empresas o blogs como este existen precisamente para hacer ese aprendizaje accesible.</p>
+<h2>Conclusión</h2>
+<p>Estos cinco hábitos no requieren ingresos altos ni condiciones económicas perfectas para practicarse. Requieren consistencia. Empieza con uno solo esta semana y mantenlo durante 30 días antes de añadir el siguiente. Ese proceso gradual construye la base de una vida financiera consciente y ordenada.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:6,cat:'ahorro',label:'Ahorro',cls:'tg-c',icon:'🛡️',bg:'#EEF2FF',
+   date:'20 mayo 2025',
+   title:'Fondo de emergencia: el activo financiero más importante que puedes tener',
+   summary:'El fondo de emergencia es lo que separa a quienes sobreviven los imprevistos de quienes los sufren. Aprende qué es, cuánto necesitas y cómo construirlo.',
+   rel:[3,2,1],
+   body:`${DISC}<span class="rdr-tag tg-c">Ahorro</span>
+<span class="rdr-date">📅 20 mayo 2025</span>
+<h1>Fondo de emergencia: el activo financiero más importante que puedes tener</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 7 min</p>
+<div class="rb">
+<p>Hay un tipo de ahorro que tiene prioridad sobre cualquier otro: el fondo de emergencia. No es el más emocionante ni el más rentable. Pero es el que convierte los imprevistos de crisis financieras en problemas temporales. Sin él, cualquier golpe inesperado puede desestabilizar meses de progreso financiero.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>¿Qué es un fondo de emergencia?</h2>
+<p>Es una reserva de dinero líquido guardado específicamente para situaciones imprevistas: pérdida de empleo, enfermedad, reparación urgente, emergencia familiar. No es para vacaciones ni compras planeadas. Es exclusivamente para emergencias reales.</p>
+<h2>¿Cuánto necesita tener?</h2>
+<p>La recomendación estándar es entre 3 y 6 meses de gastos esenciales. Si tus gastos esenciales mensuales son 300 dólares o equivalente, tu meta es entre 900 y 1.800. Si eso parece lejano, empieza con una meta parcial: primero un mes, luego dos, luego tres.</p>
+<div class="tip"><p>💡 En el contexto venezolano, donde la incertidumbre económica es mayor que en otros países, algunos expertos en educación financiera recomiendan apuntar a 6 meses en lugar de 3. La mayor incertidumbre justifica un colchón mayor.</p></div>
+<h2>Dónde guardar el fondo de emergencia</h2>
+<p>El fondo de emergencia debe estar en un lugar accesible pero separado del dinero del día a día. Una cuenta bancaria secundaria sin tarjeta de débito asociada cumple bien esta función. No debe estar invertido en instrumentos ilíquidos porque puede necesitarse de inmediato.</p>
+<h2>Conclusión</h2>
+<p>Construir el fondo de emergencia es la primera meta financiera de cualquier persona que empieza desde cero. No es glamoroso, pero es la base sobre la que se construye cualquier otro plan financiero con solidez.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:7,cat:'presupuesto',label:'Presupuesto',cls:'tg-b',icon:'📉',bg:'#FBF5E8',
+   date:'15 mayo 2025',
+   title:'Los gastos que te quitan dinero sin que lo notes: cómo detectarlos',
+   summary:'Hay gastos que salen de tu cuenta cada mes sin que los registres conscientemente. Aprende a identificarlos y a decidir cuáles valen la pena y cuáles no.',
+   rel:[2,3,5],
+   body:`${DISC}<span class="rdr-tag tg-b">Presupuesto</span>
+<span class="rdr-date">📅 15 mayo 2025</span>
+<h1>Los gastos que te quitan dinero sin que lo notes: cómo detectarlos</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 7 min</p>
+<div class="rb">
+<p>Una de las razones más comunes por las que el dinero "desaparece" sin explicación clara es la acumulación de gastos pequeños y recurrentes que individualmente parecen insignificantes pero que sumados representan una cantidad considerable. Este artículo te enseña a hacerlos visibles.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>El diagnóstico: revisa dos meses de movimientos</h2>
+<p>El primer paso es abrir la app de tu banco y revisar los movimientos de los últimos dos meses. Lista cada gasto, agrúpalo por categoría y calcula el total de cada una. Muchas personas se sorprenden al ver los números reales versus lo que creían que gastaban.</p>
+<h2>Los gastos hormiga</h2>
+<p>Son pequeños desembolsos frecuentes que individualmente parecen triviales: un café, una propina, una compra pequeña impulsiva. Cada uno por separado no preocupa, pero activos de forma acumulada mes a mes pueden representar el 10% o más del ingreso mensual.</p>
+<h2>Las suscripciones olvidadas</h2>
+<p>Plataformas digitales, apps, membresías que se contrataron en algún momento y se olvidaron pero siguen debitando mensualmente. Una revisión activa de los pagos recurrentes de la cuenta bancaria suele revelar varias de estas.</p>
+<div class="tip"><p>💡 No se trata de eliminar todo gasto que genere placer. Se trata de ser consciente de cada gasto y decidir activamente si vale lo que cuesta. El gasto consciente no es privación: es control.</p></div>
+<h2>Conclusión</h2>
+<p>Hacer visibles los gastos invisibles es uno de los ejercicios más reveladores de la educación financiera personal. Una vez que los ves, puedes decidir cuáles mantener y cuáles eliminar. Esa decisión consciente, tomada una sola vez, puede liberar dinero mensual de forma permanente.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:8,cat:'banco',label:'Banco y Pagos',cls:'tg-d',icon:'📲',bg:'#FDF4FF',
+   date:'10 mayo 2025',
+   title:'Pago móvil en Venezuela: todo lo que necesitas saber para usarlo bien',
+   summary:'El pago móvil es la herramienta de pago digital más usada en Venezuela. Esta guía te explica cómo funciona, cómo activarlo y cómo usarlo con seguridad.',
+   rel:[4,1,5],
+   body:`${DISC}<span class="rdr-tag tg-d">Banco y Pagos</span>
+<span class="rdr-date">📅 10 mayo 2025</span>
+<h1>Pago móvil en Venezuela: todo lo que necesitas saber para usarlo bien</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 7 min</p>
+<div class="rb">
+<p>El pago móvil venezolano es, sin duda, la herramienta de pago digital más democratizada del país. No requiere equipo especial, funciona entre todos los bancos del sistema nacional y permite hacer pagos y transferencias en segundos. Sin embargo, hay aspectos de su uso que muchos no conocen bien. Esta guía los cubre.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>¿Cómo funciona el pago móvil?</h2>
+<p>El pago móvil es un sistema interbancario que permite transferir dinero de una cuenta bancaria a otra usando solo el número de teléfono del destinatario, su número de cédula y el banco al que pertenece. No necesitas conocer el número de cuenta completo. El débito es inmediato y genera un comprobante digital.</p>
+<h2>Cómo activarlo en tu banco</h2>
+<p>El pago móvil se activa desde la aplicación móvil de tu banco, vinculando tu número de teléfono a tu cuenta. El proceso varía ligeramente entre bancos pero generalmente toma menos de cinco minutos. Una vez activo, puedes enviar y recibir pagos inmediatamente.</p>
+<div class="tip"><p>💡 Mantén actualizado el número de teléfono registrado en tu banco. Si cambias de número sin actualizarlo, el pago móvil dejará de funcionar correctamente y puede causar problemas para recibir pagos de nómina u otros ingresos.</p></div>
+<h2>Seguridad en el pago móvil</h2>
+<p>El pago móvil es seguro cuando se usa correctamente. Nunca compartas tu clave bancaria con nadie. Verifica siempre los datos del destinatario antes de confirmar un pago. Guarda los comprobantes de cada transacción importante. Si recibes un pago que no reconoces, repórtalo a tu banco inmediatamente.</p>
+<h2>Conclusión</h2>
+<p>El pago móvil bien entendido y bien usado es una herramienta financiera poderosa para el día a día en Venezuela. Activarlo, usarlo con seguridad y mantener actualizada la información de contacto son los tres pilares para sacarle el máximo provecho.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:9,cat:'ingresos',label:'Primeros Ingresos',cls:'tg-a',icon:'💼',bg:'#E8F5EE',
+   date:'5 mayo 2025',
+   title:'Ingreso formal vs informal en Venezuela: diferencias financieras clave',
+   summary:'Trabajar de forma formal o informal tiene implicaciones financieras importantes. Aprende qué cambia en cada caso y cómo organizarte en cualquiera de los dos.',
+   rel:[1,4,5],
+   body:`${DISC}<span class="rdr-tag tg-a">Primeros Ingresos</span>
+<span class="rdr-date">📅 5 mayo 2025</span>
+<h1>Ingreso formal vs informal en Venezuela: diferencias financieras clave</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 8 min</p>
+<div class="rb">
+<p>En Venezuela, una gran parte de la actividad económica ocurre en la informalidad. Muchos jóvenes reciben sus primeros ingresos por trabajos informales o por cuenta propia antes de tener un empleo formal. Las implicaciones financieras de uno u otro tipo de ingreso son diferentes y vale la pena conocerlas.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>El ingreso formal: deducciones y beneficios</h2>
+<p>Un empleo formal en Venezuela viene con deducciones obligatorias de nómina: IVSS (seguro social), paro forzoso y BANAVIH. Estas deducciones reducen el sueldo neto respecto al bruto, pero a cambio otorgan derechos: atención médica por el IVSS, posibilidad de cobrar paro forzoso ante desempleo involuntario y aporte al fondo habitacional.</p>
+<h2>El ingreso informal: mayor bruto, mayor responsabilidad</h2>
+<p>El trabajo informal o por cuenta propia suele ofrecer un ingreso bruto mayor porque no hay deducciones obligatorias. Pero esa aparente ventaja viene con responsabilidades que en el empleo formal asume el empleador: no hay seguro social, no hay protección ante enfermedad o desempleo, y la gestión de los impuestos es responsabilidad propia.</p>
+<div class="tip"><p>💡 Si tienes ingresos informales, crear tu propio "fondo de protección social" aparte del ahorro regular es una buena práctica. Ese fondo reemplaza parcialmente la protección que ofrecen los sistemas formales de seguridad social.</p></div>
+<h2>Cómo organizarse financieramente en cada caso</h2>
+<p>En el empleo formal, el presupuesto parte del sueldo neto (después de deducciones). En el ingreso informal, parte del ingreso bruto pero debe incluir una reserva para gastos de salud y para los meses de menor actividad.</p>
+<h2>Conclusión</h2>
+<p>No hay un tipo de ingreso universalmente mejor que el otro. Cada uno tiene ventajas y responsabilidades específicas. Entenderlas permite organizarse financieramente de forma apropiada para cada situación.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`},
+
+  {id:10,cat:'habitos',label:'Hábitos Financieros',cls:'tg-e',icon:'🌱',bg:'#FFF7ED',
+   date:'1 mayo 2025',
+   title:'Independencia financiera desde joven: qué significa y cómo empezar a construirla',
+   summary:'La independencia financiera no es solo para personas mayores con mucho dinero. Es un proceso que empieza desde los primeros ingresos y se construye con hábitos diarios.',
+   rel:[5,3,2],
+   body:`${DISC}<span class="rdr-tag tg-e">Hábitos Financieros</span>
+<span class="rdr-date">📅 1 mayo 2025</span>
+<h1>Independencia financiera desde joven: qué significa y cómo empezar a construirla</h1>
+<p class="r-meta">Por Juan Pablo Sanchez Chavez · Finanzas Educativas · Caracas, Venezuela · 8 min</p>
+<div class="rb">
+<p>La independencia financiera es uno de esos conceptos que parece reservado para personas con mucho dinero o muchos años de trabajo. En realidad, es un proceso que puede y debe comenzarse desde los primeros ingresos, independientemente del monto. Este artículo te explica qué significa realmente y cómo empezar desde donde estás.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+<h2>¿Qué es la independencia financiera?</h2>
+<p>En su forma más básica, la independencia financiera significa que tus decisiones de vida no las dicta la urgencia económica. Para un joven que empieza, los primeros niveles son concretos y alcanzables: cubrir tus propios gastos sin depender de otros, tener un fondo que te proteja ante imprevistos y no endeudarte para cubrir necesidades básicas.</p>
+<h2>El camino que comparten todos los que la logran</h2>
+<p>Independientemente del país, el nivel de ingresos o la época, las personas que construyen independencia financiera comparten un patrón: gastan menos de lo que ganan, ahorran e invierten la diferencia de forma consistente, y se educan continuamente sobre finanzas. No es una fórmula secreta: es disciplina aplicada en el tiempo.</p>
+<div class="tip"><p>💡 La educación financiera es el activo más accesible para cualquier joven venezolano que quiera construir independencia financiera. Blogs como Finanzas Educativas y espacios de aprendizaje como Provinet Empresas existen para democratizar ese conocimiento.</p></div>
+<div class="warn"><p>⚠️ Finanzas Educativas menciona Provinet Empresas como referencia educativa sin afiliación comercial oficial. Provinet Empresas es una marca de aprendizaje independiente.</p></div>
+<h2>El primer paso práctico esta semana</h2>
+<p>Si quieres empezar a construir independencia financiera esta semana, hay una sola acción que importa más que cualquier otra: saber exactamente cuánto entra y cuánto sale de tu economía personal. Ese conocimiento básico, que la mayoría no tiene, es el punto de partida de cualquier plan financiero real.</p>
+<h2>Conclusión</h2>
+<p>La independencia financiera no es un destino que se alcanza de golpe: es un camino que se recorre con pasos pequeños y consistentes. El mejor momento para empezar ese camino fue ayer. El segundo mejor momento es hoy.</p>
+<div class="adslot"><!-- HUECO ANUNCIO ADSENSE (insertar más tarde) --></div>
+</div>`}
+];
+
+const PAGES = {
+  sobre: {
+    title: 'Sobre Nosotros',
+    content: `<div class="page-disc">📋 <strong>Declaración de independencia:</strong> Finanzas Educativas es un blog editorial completamente independiente. No tiene afiliación comercial oficial con ningún banco, entidad financiera ni organización. Provinet Empresas se menciona como referencia educativa sin afiliación comercial oficial.</div>
+<h1>Sobre Finanzas Educativas</h1>
+<h2>¿Qué es este blog?</h2>
+<p>Finanzas Educativas es un blog editorial independiente dedicado a la educación financiera personal para venezolanos que están comenzando su vida económica. Publicamos artículos informativos sobre cómo manejar los primeros ingresos, construir presupuestos, ahorrar, usar el sistema bancario venezolano y desarrollar hábitos financieros saludables.</p>
+<p>Este blog <strong>no es</strong> un banco, no presta servicios financieros, no capta inversiones, no vende productos y no tiene afiliación con ninguna entidad financiera ni gubernamental.</p>
+<h2>¿Quién está detrás?</h2>
+<p>El blog es operado y editado por <strong>Juan Pablo Sanchez Chavez</strong>, desde Caracas, Venezuela — Esquina de La Torre, Avenida Norte, Bulevar Panteon, Caracas 1010, Distrito Capital.</p>
+<h2>Sobre Provinet Empresas</h2>
+<p>Provinet Empresas es una marca educativa de aprendizaje sobre emprendimiento y finanzas. Este blog comparte esa misión educativa y la menciona como referencia de aprendizaje. <strong>Finanzas Educativas no tiene afiliación comercial oficial con Provinet Empresas ni actúa en su nombre.</strong></p>
+<h2>¿Cómo elaboramos el contenido?</h2>
+<p>Los artículos se basan en principios generalmente aceptados de finanzas personales, información pública verificable y análisis del contexto económico venezolano. No publicamos contenido patrocinado sin indicarlo. La publicidad no influye en los criterios editoriales.</p>
+<h2>Contacto</h2>
+<p>📧 <a href="mailto:finanzaseducativas@gmail.com">finanzaseducativas@gmail.com</a></p>
+<p>📍 Esquina de La Torre, Avenida Norte, Bulevar Panteon, Caracas 1010, Distrito Capital, Venezuela</p>`
+  },
+  contacto: {
+    title: 'Contacto',
+    content: `<h1>Contacto</h1>
+<div class="page-disc">📋 Finanzas Educativas es un blog educativo independiente. No somos una entidad financiera y no brindamos asesoría financiera personalizada.</div>
+<h2>Datos de contacto</h2>
+<p>📧 <strong><a href="mailto:finanzaseducativas@gmail.com">finanzaseducativas@gmail.com</a></strong></p>
+<p>📍 Esquina de La Torre, Avenida Norte, Bulevar Panteon, Caracas 1010, Distrito Capital, Venezuela — Esquina de La Torre, Avenida Norte, Bulevar Panteon, Caracas 1010, Distrito Capital</p>
+<p>Respondemos en 24 a 48 horas hábiles.</p>
+<h2>Escríbenos</h2>
+<div class="contact-form" id="cf">
+  <input type="text" id="cf-name" placeholder="Tu nombre" maxlength="80">
+  <input type="email" id="cf-email" placeholder="Tu correo electrónico" autocomplete="email">
+  <textarea id="cf-msg" placeholder="Tu mensaje o pregunta sobre el contenido del blog" rows="4" maxlength="800"></textarea>
+  <p style="font-size:0.72rem;color:var(--muted)">Solo usamos tus datos para responderte. Lee nuestra <a href="#" onclick="showPage('privacidad');return false;">Política de Privacidad</a>.</p>
+  <button onclick="cfSubmit()">Enviar mensaje</button>
+  <div class="form-ok" id="cf-ok">✓ ¡Mensaje recibido! Te respondemos pronto.</div>
+</div>
+<h2>¿Qué podemos responder?</h2>
+<p><strong>Sí podemos:</strong> preguntas sobre el contenido del blog, sugerencias de temas, correcciones de información y consultas editoriales.</p>
+<p><strong>No podemos:</strong> asesoría financiera personalizada ni consultas sobre productos bancarios específicos.</p>`
+  },
+  editorial: {
+    title: 'Política Editorial',
+    content: `<h1>Política Editorial</h1>
+<h2>Criterios de publicación</h2>
+<p>Publicamos artículos que sean: originales y redactados por el equipo editorial, verificables con base en fuentes públicas confiables, útiles para la educación financiera personal y relevantes para el contexto venezolano.</p>
+<h2>Verificación de fuentes</h2>
+<p>Nos esforzamos por verificar la exactitud de la información publicada. El contenido tiene carácter informativo y educativo, y no debe considerarse como asesoramiento financiero, legal o empresarial profesional.</p>
+<h2>Independencia editorial</h2>
+<p>La publicidad (Google AdSense) no influye en ningún aspecto del contenido editorial. No aceptamos artículos patrocinados sin indicarlo explícitamente. Los criterios editoriales son completamente independientes de cualquier relación comercial.</p>
+<h2>Sobre Provinet Empresas</h2>
+<p>Cuando este blog menciona Provinet Empresas, lo hace como referencia educativa de aprendizaje. <strong>Finanzas Educativas no tiene afiliación comercial oficial con Provinet Empresas.</strong> Las menciones son exclusivamente informativas y educativas.</p>
+<h2>Correcciones</h2>
+<p>Si identificas un error, escríbenos a <a href="mailto:finanzaseducativas@gmail.com">finanzaseducativas@gmail.com</a>. Revisamos y corregimos los errores verificados a la brevedad.</p>`
+  },
+  privacidad: {
+    title: 'Política de Privacidad',
+    content: `<h1>Política de Privacidad</h1>
+<p><strong>Titular:</strong> Juan Pablo Sanchez Chavez<br>
+<strong>Sitio:</strong> finanzaseducativas.blog<br>
+<strong>Correo:</strong> finanzaseducativas@gmail.com<br>
+<strong>Dirección:</strong> Esquina de La Torre, Avenida Norte, Bulevar Panteon, Caracas 1010, Venezuela</p>
+<h2>¿Qué datos recopilamos?</h2>
+<p>Este blog recopila los siguientes tipos de datos:</p>
+<ul>
+<li><strong>Formulario de contacto:</strong> nombre, email y mensaje. Solo para responder tu consulta.</li>
+<li><strong>Newsletter:</strong> solo email. Para enviarte nuevos artículos si te suscribes.</li>
+<li><strong>Cookies técnicas y analíticas:</strong> Google Analytics recopila datos anónimos de uso del sitio.</li>
+<li><strong>Cookies publicitarias:</strong> Google AdSense puede usar cookies para personalizar anuncios.</li>
+</ul>
+<p>Este sitio <strong>no solicita</strong> contraseñas, datos bancarios, números de tarjeta ni documentos de identidad.</p>
+<h2>Google AdSense</h2>
+<p>Usamos Google AdSense para mostrar anuncios. Puedes gestionar tus preferencias en <a href="https://www.google.com/settings/ads" target="_blank">google.com/settings/ads</a>.</p>
+<p>Última actualización: Junio 2025.</p>`
+  },
+  cookies: {
+    title: 'Política de Cookies',
+    content: `<h1>Política de Cookies</h1>
+<h2>¿Qué cookies usamos?</h2>
+<p><strong>Técnicas:</strong> necesarias para el funcionamiento básico del sitio (preferencias de cookies). No pueden desactivarse.</p>
+<p><strong>Analíticas:</strong> Google Analytics recopila datos anónimos sobre el uso del sitio para mejorar el contenido.</p>
+<p><strong>Publicitarias:</strong> Google AdSense usa cookies para mostrar anuncios relevantes. Puedes desactivarlas en <a href="https://www.google.com/settings/ads" target="_blank">google.com/settings/ads</a>.</p>
+<h2>Gestión</h2>
+<p>Puedes aceptar o rechazar las cookies no esenciales usando el banner al acceder al sitio por primera vez.</p>`
+  },
+  legal: {
+    title: 'Aviso Legal',
+    content: `<h1>Aviso Legal</h1>
+<div class="page-disc">📋 <strong>Aviso de independencia:</strong> Finanzas Educativas no tiene afiliación con ningún banco, entidad financiera ni organización. Provinet Empresas se menciona exclusivamente como referencia educativa sin afiliación comercial oficial.</div>
+<h2>Titularidad</h2>
+<p><strong>Titular:</strong> Juan Pablo Sanchez Chavez<br>
+<strong>Blog:</strong> Finanzas Educativas<br>
+<strong>Dominio:</strong> finanzaseducativas.blog<br>
+<strong>Correo:</strong> finanzaseducativas@gmail.com<br>
+<strong>Dirección:</strong> Esquina de La Torre, Avenida Norte, Bulevar Panteon, Caracas 1010, Distrito Capital, Venezuela</p>
+<h2>Objeto del sitio</h2>
+<p>Finanzas Educativas es un blog editorial independiente con fines exclusivamente informativos y educativos sobre finanzas personales. No vende productos ni servicios, no presta asesoría financiera y no capta datos con fines comerciales.</p>
+<h2>Responsabilidad</h2>
+<p>El contenido publicado tiene carácter exclusivamente informativo y educativo. No constituye asesoramiento financiero, legal ni de inversión. Para asesoramiento profesional, consulta con un especialista certificado.</p>
+<h2>Propiedad intelectual</h2>
+<p>El contenido publicado es propiedad de Juan Pablo Sanchez Chavez. La reproducción total o parcial requiere autorización escrita del titular.</p>
+<h2>Ley aplicable</h2>
+<p>Este sitio opera bajo la legislación venezolana vigente.</p>`
+  }
+};
+
+const CATS = ['all','ingresos','presupuesto','ahorro','banco','habitos'];
+const LABELS = {all:'Todos',ingresos:'Primeros Ingresos',presupuesto:'Presupuesto',ahorro:'Ahorro',banco:'Banco y Pagos',habitos:'Hábitos'};
+
+const fr = document.getElementById('frow');
+CATS.forEach(c => {
+  const b = document.createElement('button');
+  b.className = 'fb'+(c==='all'?' on':'');
+  b.textContent = LABELS[c];
+  b.onclick = () => fcat(c);
+  fr.appendChild(b);
+});
+
+function renderGrid(list) {
+  document.getElementById('grid').innerHTML = list.map(a => `
+    <div class="art-card" onclick="openReader(${a.id})">
+      <div class="art-thumb" style="background:${a.bg}">${a.icon}</div>
+      <div class="art-body">
+        <span class="art-tag ${a.cls}">${a.label}</span>
+        <span class="art-date">📅 ${a.date}</span>
+        <h3>${a.title}</h3>
+        <p>${a.summary}</p>
+        <span class="art-read">Leer artículo →</span>
+      </div>
+    </div>`).join('');
+}
+renderGrid(ARTS);
+
+function fcat(cat) {
+  document.querySelectorAll('.fb').forEach((b,i) => b.classList.toggle('on', CATS[i]===cat));
+  renderGrid(cat==='all' ? ARTS : ARTS.filter(a=>a.cat===cat));
+  document.getElementById('articulos')?.scrollIntoView({behavior:'smooth'});
+}
+
+function doSearch(q) {
+  if(!q.trim()){renderGrid(ARTS);return}
+  const lq=q.toLowerCase();
+  renderGrid(ARTS.filter(a=>a.title.toLowerCase().includes(lq)||a.summary.toLowerCase().includes(lq)||a.label.toLowerCase().includes(lq)));
+}
+
+function openReader(id) {
+  const a = ARTS.find(x=>x.id===id);
+  if(!a) return;
+  document.getElementById('rcrumb').textContent = a.label;
+  const rel = a.rel.map(rid=>ARTS.find(x=>x.id===rid)).filter(Boolean)
+    .map(r=>`<a class="rel-lnk" href="#" onclick="openReader(${r.id});return false;">→ ${r.title}</a>`).join('');
+  document.getElementById('rcontent').innerHTML = a.body+`<div class="rel-blk"><h4>También te puede interesar</h4><div class="rel-links">${rel}</div></div>`;
+  const rd = document.getElementById('reader');
+  rd.style.display='block'; rd.scrollTop=0;
+  document.body.style.overflow='hidden';
+}
+
+function closeReader(){document.getElementById('reader').style.display='none';document.body.style.overflow='';}
+
+function showPage(key) {
+  const p = PAGES[key];
+  if(!p) return;
+  document.getElementById('page-title').textContent = p.title;
+  document.getElementById('page-content').innerHTML = p.content;
+  const pg = document.getElementById('page');
+  pg.style.display='block'; pg.scrollTop=0;
+  document.body.style.overflow='hidden';
+}
+
+function closePage(){document.getElementById('page').style.display='none';document.body.style.overflow='';}
+function goHome(){closeReader();closePage();window.scrollTo({top:0,behavior:'smooth'});}
+
+function nlSubmit(){
+  const e=document.getElementById('nl-email');
+  if(!e.value||!e.value.includes('@')){e.style.borderColor='red';return;}
+  e.style.borderColor='';
+  document.querySelector('.nl-form').style.display='none';
+  document.getElementById('nl-ok').style.display='block';
+}
+
+function cfSubmit(){
+  const n=document.getElementById('cf-name');
+  const e=document.getElementById('cf-email');
+  const m=document.getElementById('cf-msg');
+  if(!n||!e||!m) return;
+  if(!e.value||!e.value.includes('@')){e.style.borderColor='red';return;}
+  e.style.borderColor='';
+  n.disabled=true; e.disabled=true; m.disabled=true;
+  document.getElementById('cf-ok').style.display='block';
+}
+
+function okCk(){localStorage.setItem('ck','y');document.getElementById('ck').style.display='none'}
+function noCk(){localStorage.setItem('ck','n');document.getElementById('ck').style.display='none'}
+if(localStorage.getItem('ck'))document.getElementById('ck').style.display='none';
+
+function togNav(){
+  const m=document.querySelector('.nav-links');
+  const show=m.style.display==='flex';
+  m.style.cssText=show?'':'display:flex;flex-direction:column;position:absolute;top:62px;left:0;right:0;background:white;padding:16px 24px;z-index:99;box-shadow:0 8px 24px rgba(0,0,0,0.08);border-bottom:1px solid var(--line)';
+}
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){closeReader();closePage();}
+});
+</script>
+</body>
+</html>
